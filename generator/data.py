@@ -97,6 +97,8 @@ DASH = [
 ]
 
 CAP = {  # gallery captions + filter tags
+ 'g01':("The crew, out front","team"),
+ 'g16':("The crew under our sign","team"),
  'g03':("Engine bay open, new battery going in","shop"),
  'g15':("The alignment rack","shop"),
  'f07':("Lifts and the shop floor","shop"),

@@ -111,7 +111,7 @@ def nav(page):
     links = ''.join(f'<li><a href="{p}"{" aria-current=page" if p==page else ""}>{l}</a></li>' for p,l in PAGES)
     mlinks = ''.join(f'<a class="mm-l" href="{p}"{" aria-current=page" if p==page else ""} style="--d:{i}"><span>0{i+1}</span>{l}</a>' for i,(p,l) in enumerate(PAGES))
     return f'''<a class="skip" href="#main">Skip to content</a><div class="pbar" aria-hidden="true"><i></i></div>
-<header class="nav"><div class="nav-in"><a class="brand" href="index.html" aria-label="{e(NAME)} home"><img src="brand/logo-horizontal-light.svg" alt="{e(NAME)}, since 1975" width="628" height="175"></a>
+<header class="nav"><div class="nav-in"><a class="brand" href="index.html" aria-label="{e(NAME)} home"><img class="b-l" src="brand/logo-horizontal-light.svg" alt="{e(NAME)}, since 1975" width="628" height="175"><img class="b-d" src="brand/logo-horizontal-dark.svg" alt="" width="628" height="175" aria-hidden="true"></a>
 <nav aria-label="Main"><ul>{links}</ul></nav>
 <div class="acts"><a class="btn line sm" href="contact.html#book">{ic('cal')}<span>Book</span></a><a class="btn red sm mag" href="tel:{TEL}">{ic('phone')}<span>{PHONE}</span></a></div>
 <button class="menu-btn" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><i></i><i></i></button></div></header>
@@ -336,7 +336,7 @@ def about():
 <figure class="lb-a rv">{img('g02','Lobby seating with a red armchair and car magazines on a coffee table',small=True)}</figure>
 <div><span class="eyebrow light rv">{DIA}The lobby</span><h2 class="h2 split" id="lb-h"><span class="ln"><span>Wait in <em>comfort.</em></span></span></h2><p class="rv">Tall windows, comfortable seats, magazines on the table and restrooms our customers call the cleanest around. Stay while we work, or ask about the loaner and get on with your day.</p>
 <h3 class="rv chips-h">What customers mention most</h3><ul class="chips rv">{chips}</ul></div>
-<figure class="lb-b rv">{img('f07','The shop floor with blue two-post lifts and cars in service',small=True)}</figure></div></section>
+<figure class="lb-b rv">{img('g17','The bright lobby with tall windows, red armchairs and a gray sofa',small=True)}</figure></div></section>
 {cta_band()}</main>{footer()}'''
 
 def reviews():

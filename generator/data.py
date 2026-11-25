@@ -1,78 +1,115 @@
-# Facts for Mike's Miracle Movers, L.L.C. Sources (captured 2026-11-25): Google Business Profile + truck lettering (photo g01/g02).
-# See /workspace/site3-research/notes.md. Nothing here is invented: no address, no owner name as fact, no prices.
-BASE = "https://rgwebd.github.io/mikesmiraclemovers-demo/"
-NAME = "Mike's Miracle Movers"
-LEGAL = "Mike's Miracle Movers, L.L.C."
-PHONE = "(904) 710-1565"; TEL = "+19047101565"
-CITY = "Jacksonville"; REGION = "FL"
-RATING = "4.7"; REVIEWS = 354
-TAGLINE = "We make it look EASY!"          # painted on the truck
-SLOGAN = "Let's make a move"               # on their own flyer (Google photos)
-MAPS = "https://maps.app.goo.gl/jXwExXL5nJ8bVdNc8"
-MAPS_LONG = "https://www.google.com/maps/place/Mike's+Miracle+Movers,+L.L.C./data=!4m6!3m5!1s0x88e5b436aa611997:0xbe6fd3cb3e9adc6e!8m2!3d30.2260024!4d-81.600999!16s%2Fg%2F11g6hv279f"
-TRUCK_LINES = ["Moving", "Commercial", "Residential", "Local", "Storage", "Business"]   # truck lettering
-ATTRS = ["Online estimates", "LGBTQ+ friendly", "Asian-owned"]                     # Google attributes
-# hours (Google): day index 0=Sun
-HOURS = [("Sunday","8 AM","8 PM",8,20),("Monday","6 AM","10 PM",6,22),("Tuesday","6 AM","10 PM",6,22),("Wednesday","6 AM","10 PM",6,22),
-         ("Thursday","6 AM","10 PM",6,22),("Friday","6 AM","10 PM",6,22),("Saturday","6 AM","9 PM",6,21)]
-HOLIDAYS = {"2026-11-26":"Thanksgiving","2026-11-27":"Black Friday"}   # Google: "hours might differ"
-AREAS = ["Jacksonville", "Orange Park", "the Jacksonville area", "long-distance trips like Jacksonville to Savannah"]
+# Facts for Dave Mays Automotive. Sources (captured 2026-11-25): Google Business Profile [GM], Facebook page [FB], door decal (Google photo g10), roadside sign (Reese's photo).
+# See /workspace/davemays-research/notes.md. Nothing invented: no owner name as fact, no prices.
+BASE = "https://rgwebd.github.io/davemaysautomotive-demo/"
+NAME = "Dave Mays Automotive"
+LEGAL = "Dave Mays Automotive, Inc."      # Facebook page name "Dave Mays Automotive, Inc"
+PHONE = "(352) 372-7617"; TEL = "+13523727617"
+STREET = "2905 NE 19th Dr"; CITY = "Gainesville"; REGION = "FL"; ZIP = "32609"
+ADDR = f"{STREET}, {CITY}, {REGION} {ZIP}"
+GEO = (29.678969, -82.2985268)
+RATING = "4.6"; REVIEWS = 163
+FB_PCT = 98; FB_N = 17
+SINCE = 1975
+DOOR = "We Get The Bugs Out of Your Car!"   # their door decal (g10)
+MAPS = "https://maps.app.goo.gl/KBtcUF4ydyZZGLM8A"
+MAPS_LONG = "https://www.google.com/maps/place/Dave+Mays+Automotive/@29.678969,-82.2985268,17z/data=!3m1!4b1!4m6!3m5!1s0x88e8a6a1b044c1bb:0x47dfdd13616fe318"
+FB = "https://www.facebook.com/DaveMaysAutomotive/"
+DIR = "https://www.google.com/maps/dir/?api=1&destination=Dave+Mays+Automotive,+2905+NE+19th+Dr,+Gainesville,+FL+32609"
+# hours: index 0=Sun; minutes from midnight. Friday from the door decal + Google (holiday-week) -> flagged to confirm.
+HOURS = [("Sunday",None,None),("Monday",450,1050),("Tuesday",450,1050),("Wednesday",450,1050),("Thursday",450,1050),("Friday",450,1020),("Saturday",None,None)]
+HOLIDAYS = {"2026-11-26":"Thanksgiving","2026-11-27":"Black Friday","2026-12-24":"Christmas Eve","2026-12-25":"Christmas Day","2026-12-31":"New Year\u2019s Eve","2027-01-01":"New Year\u2019s Day"}
+TOPICS = ["Honest mechanics","Loaner car","Friendly crew","Honest staff","Clean facility","Courteous staff","Affordable","Fast diagnosis","Brake job","Oil leak repair"]
+WORK_ON = ["Classic cars","Day-to-day vehicles","Fleet vehicles"]   # FB bio
+
+def fmt(m):
+    h,mi=divmod(m,60); ap='AM' if h<12 else 'PM'; h=h%12 or 12
+    return f"{h}:{mi:02d} {ap}"
 
 REVIEWS_LIST = [
- dict(name="Manzima Jain", age="3 months ago", tag="Jacksonville \u2192 Savannah", pull="Mike made the whole process smooth and hassle-free.",
-  text="Mike did a fantastic job helping us move from Jacksonville to Savannah. He was professional, punctual, careful, and very helpful throughout the entire move. He handled our furniture and belongings with great care, and everything arrived safely.\nMoving to another city can be stressful, but Mike made the whole process smooth and hassle-free. I really appreciate his hard work and positive attitude.\nI would definitely recommend Mike to anyone looking for a reliable and trustworthy mover. Great service from start to finish!"),
- dict(name="Laura Mitchell", age="a year ago", tag="2 bed / 2 bath", pull="They are Tetris masters!",
-  text="Absolutely the BEST! Mike and his crew are amazing. They are fast and efficient amongst being gentle with your stuff. They are Tetris masters! Super friendly and professional. I have used them several times and will continue to do so!!  Moved my 2 bed 2 bath packed and unloaded in total 3 hours. The pricing is the most affordable and so worth it!!  Your back will thank you!!"),
- dict(name="Keith Knapp", age="11 months ago", tag="Last-minute move", pull="Michael saved the day.",
-  text="I highly recommend Michael and his moving company. When my original movers canceled last minute, Michael stepped in without hesitation. He was professional, responsive, and turned what could have been a stressful day into a seamless experience. His crew arrived promptly, worked efficiently, and handled my belongings with exceptional care\u2014nothing was damaged. Michael remained calm and organized throughout, ensuring the move was smooth despite the short notice.\nIf you\u2019re looking for reliability and top\u2011notch service, this is the company to call. Michael saved the day, and I\u2019ll definitely be recommending Michael to anyone in need of movers."),
- dict(name="Erin Montgomery", age="8 months ago", tag="Townhome \u2192 storage unit", pull="Friendly, responsive, efficient, organized, very reasonably priced (and strong!).",
-  text="I\u2019m so thankful a neighbor recommended Mike\u2019s Miracle Movers to me! Mike and Chris moved my furniture and other belongings out of my townhome and into a storage unit. They were friendly, responsive, efficient, organized, very reasonably priced (and strong!). It gave me so much peace of mind knowing I had these 2 awesome guys taking care of my move, and I will most definitely hire them again to move me into a new home in the near future. Five stars all around for Mike and his team!"),
- dict(name="Amy Crum", age="a year ago", tag="Local move", pull="I have used this company for 8 years!!!",
-  text="5/5 Stars - Excellent Service!\nI have used this company for 8 years!!! I recently hired Mike\u2019s Miracle Movers for a local move, and I couldn\u2019t be more impressed with their professionalism and efficiency. From the very first phone call, they were friendly, helpful, and provided a clear breakdown of the pricing and moving process.\nOn the day of the move, the crew arrived on time, ready to get started. They handled all of my furniture with care, wrapping delicate items and making sure everything was securely loaded onto the truck. I was especially impressed by how quickly they worked without sacrificing the quality of their service.\nThe move was completed smoothly, and everything arrived at the new location in perfect condition. The team was courteous and respectful throughout the entire process, and they made a typically stressful experience much easier.\nI highly recommend Mike\u2019s Miracle Movers for anyone looking for a reliable and efficient moving company. Great service, competitive prices, and a job well done!"),
- dict(name="Ken Juhlin", age="a year ago", tag="Jacuzzi move", pull="Tough moving job made to look easy.",
-  text="Mike came thru with a 2 day moving deadline. These guys showed up on time and ready to move the Jacuzzi to my house. Tough moving job made to look easy with Mike and crew. No damage to either yard/landscaping at both homes. Thanks"),
- dict(name="Emily Vidal-Torres", age="2 years ago", tag="House move", pull="The pricing was fair and transparent\u2014no hidden fees or surprises.",
-  text="I had an excellent experience with Mike and his team. From start to finish, the team was professional, efficient, and friendly. They arrived on time and handled all of our belongings with great care, making sure everything was transported safely. The movers worked quickly but without rushing, and they even went the extra mile to ensure that everything was placed exactly where I wanted it in the new house. The pricing was fair and transparent\u2014no hidden fees or surprises. Highly recommend this moving company to anyone looking for reliable movers!"),
- dict(name="Ana Maria McPherson", age="4 weeks ago", tag="Dining room set", pull="Took great care to wrap and protect the table and chairs.",
-  text="Mike and his crew did a fantastic job moving my dining room set. They showed up right when promised, took great care to wrap and protect the table and chairs, and made the whole process completely stress-free. Very polite, helpful, and professional throughout. Highly recommend Mike for any moving needs!"),
- dict(name="Joan Warren", age="2 months ago", tag="Marketplace pickup", pull="Reliable, careful with furniture and pleasant.",
-  text="Moved a large hutch I purchased on Marketplace. Met at sellers home and delivered to mine. Reliable, careful with furniture and pleasant. Communication when obstacles delayed, but also patient when my route back delayed me. Would use their service again."),
- dict(name="Jaiden Munger", age="7 months ago", tag="Weekend move", pull="Even moved more items than we had originally asked them to!",
-  text="We were recommended Mikes services & booked with him this past weekend to move. They arrived on time, were extremely efficient, & even moved more items than we had originally asked them to! We\u2019re grateful for Mikes Movers and will definitely use them again for our next move!"),
+ dict(name="Tina Perkins", age="4 weeks ago", tag="Drove up from St. Pete", pull="The reason is because Dave Mays Auto is honest. And they treat you like family.",
+  text="Amazing place to have your car worked on. I drove up from St Pete to have Dave Mays Auto look at my car. One might ask why come here when you pass many other places along the way and have places near me back where I live. The reason is because Dave Mays Auto is honest. And they treat you like family. Everyone that works there is so polite and really cares. And they make sure you are well taken care of. And they have the cleanest bathrooms. I dislike my dealership where I bought my car and really hate going to them so I bring it to Dave Mays to service and make sure my car is in good working order. This is the best place. You need someone that is honest and will treat you right go see everyone at Dave Mays Auto. They will take good care of you. The owners are great as well as the staff.  Thank you for everything! 5 \U0001F31F service always. Tina -St Petersburg Florida"),
+ dict(name="James Crosby", age="a month ago", tag="Years of service", pull="They shoot it to you straight, the good, bad, or ugly.",
+  text="By far the best in Gainesville. I\u2019ve been using Dave Mays for years now because they are the only ones you can trust with your vehicle. They shoot it to you straight, the good, bad, or ugly and will help you any way they can. Great Service for a fair price."),
+ dict(name="Richard Harvey", age="a year ago", tag="Check engine light", pull="By 10:30 that morning the car was repaired.",
+  text="My granddaughter's car was running rough and had a check engine light on. Took it in to Dave Mays without an appointment on Monday morning and by 10:30 that morning the car was repaired.\nThe charge was extremely reasonable and about 10 % of what the dealer had quoted.\nDave Mays has a great reputation for quality service at a reasonable cost.\nI say that reputation is well deserved!\nThese guys are very honest and will charge a fair price for the high quality  work  they do."),
+ dict(name="Reid Wagner", age="a month ago", tag="Gainesville", pull="Reliable and honest service.",
+  text="Great experience with Dave Mays Automotive in Gainesville. The staff was friendly, professional, and straightforward throughout the whole process. They communicated clearly, got the work done efficiently, and made everything easy. I\u2019d definitely recommend Dave Mays Automotive to anyone in Gainesville looking for reliable and honest service."),
+ dict(name="Karen Swinea", age="a year ago", tag="Maintenance + loaner", pull="They also have a loaner vehicle so you don't have to miss time off work.",
+  text="Great experience with Dave Mays! I've neglected some routine maintenance on my vehicle and needed to get some work done. The owners were so helpful is diagnosing what needed to be done first and worked with me to fit it into my budget. They also have a loaner vehicle so you don't have to miss time off work. Very professional and great customer service. I'll be back!"),
+ dict(name="Pandora Rose", age="edited a month ago", tag="Looked out for me", pull="I really appreciate that Dave Mays took the time to research the issue and look out for me.",
+  text="I had a check engine light come on for the second time. Before I even got to Dave Mays, they had researched my issue and had a solution ready to go. They found a turbocharger problem that was covered by a special extended manufacturer coverage and referred me to the Chevrolet dealership rather than having me pay for the repair myself. Chevrolet replaced the turbocharger at no charge. I really appreciate that Dave Mays took the time to research the issue and look out for me as a customer."),
+ dict(name="Steven Murphy", age="4 months ago", tag="Rims + tires", pull="I don't feel like they're trying to scam me like other mechanics.",
+  text="I highly recommend Dave Mays.tgey installed new rims and tires for me. Super friendly staff, very knowledgeable, and I don't feel like they're trying to scam me like other mechanics. When they told me what was wrong with my car they offered to sell me what I needed or offered an alternative of getting stuff myself and they would fix it for me. Overall just a very pleasant experience. Will be back here when it's needed."),
+ dict(name="rene morrissey", age="2 months ago", tag="Budget-friendly options", pull="Giving a range of repair options and timing to accommodate budgets.",
+  text="Many years of consistently excellent service. Especially notable for giving a range of repair options and timing to accommodate budgets, including steering away from costly repairs or parts that might be \u201crecommended\u201d but aren\u2019t worth the price difference. Also notable for anticipating future repairs that allows for budgeting."),
+ dict(name="Jay Kalinowski", age="a month ago", tag="The whole crew", pull="The best service, honest, dependable.",
+  text="Brian, Janeina & Alex and the rest of the crew provide the best service, honest, dependable. Take all my cars there now."),
+ dict(name="David Harrison", age="a month ago", tag="25 years", pull="Great place for honest repairs.",
+  text="Great place for honest repairs.  Enjoyed 25 years of knowing Brian.   Keep up the great work!!"),
+]
+EXCERPTS = [  # truncated in the Google list: shown as excerpts only, never as full reviews
+ dict(name="Erin King", text="We've taken all 6 of our cars to them over the course of almost 30 years\u2026"),
+ dict(name="Paul Theus", text="Our company brings our fleet vehicles here for service\u2026 Fair, honest , efficient , great communications."),
 ]
 
-# services: key, title, photo or None, short, long, proof (reviewer name), icon
+# services: key, title, photo, inset, short, long, bullets, proof(review name, quote), icon
 SVC = [
- ("local","Local moves","g07","Houses, townhomes and apartments across Jacksonville, Orange Park and nearby.",
-  "Packed, loaded, driven across town and set down where you want it. Reviewers tell us about whole homes moved in an afternoon and furniture placed exactly where they wanted it in the new house.","Laura Mitchell","home"),
- ("long","Long-distance moves","g04","Out of town? We\u2019ve driven Jacksonville families all the way to Savannah.",
-  "Same crew, same care, longer drive. Your furniture is wrapped and loaded tight so it arrives the way it left.","Manzima Jain","route"),
- ("apt","Apartments &amp; condos","g09","Stairs, elevators and tight hallways, handled.",
-  "Apartment and condo moves done quick and tidy, careful with the building as well as your things. One reviewer’s 2 bed, 2 bath was packed and unloaded in three hours total.","Laura Mitchell","bldg"),
- ("storage","Storage unit moves","g06","Into storage, out of storage, or straight to your new place.",
-  "We load your unit neatly so it\u2019s easy to get back into, then move it all again when you\u2019re ready.","Erin Montgomery","box"),
- ("office","Office &amp; commercial","g02","Commercial and business moves: it says so right on the truck.",
-  "Desks, files and equipment moved with the same organized approach, so your team can get back to work.",None,"brief"),
- ("heavy","Hot tubs, pianos &amp; heavy items","g03","Jacuzzis, pianos and the pieces nobody else wants to lift.",
-  "Hot tubs and other heavy, awkward items moved with straps, dollies and a plan, without wrecking the yard.","Ken Juhlin","weight"),
- ("pack","Packing &amp; wrapping","g05","Moving blankets, shrink wrap and careful hands.",
-  "Delicate pieces get wrapped and protected before they ever leave the room, from dining sets to dressers.","Ana Maria McPherson","wrap"),
- ("single","Single items &amp; Marketplace pickups",None,"Bought a hutch on Marketplace? We\u2019ll grab it and bring it home.",
-  "One big piece or a handful: we meet you at the seller\u2019s place and deliver to yours.","Joan Warren","truck"),
- ("rush","Last-minute moves",None,"Movers cancel? Deadline in two days? Call us.",
-  "Reviewers tell us about stepping in when their original movers canceled and beating a two-day deadline.","Keith Knapp","bolt"),
- ("load","Loading &amp; unloading help",None,"Rented your own truck? We\u2019ll do the heavy lifting.",
-  "Already have a rental truck? Our crew can load it or unload it for you, packed tight and secure.",None,"dolly"),
+ ("diag","Diagnostics &amp; check-engine lights","f08",None,"Warning light on? We find the cause and tell you straight.",
+  "Engine diagnostics is where most visits start. We track down why the light is on or why it\u2019s running rough, then explain what we found and what it will take, before any work begins.",
+  ["Check-engine &amp; warning lights","Running rough, stalling, hesitation","Oil leaks","Fast, clear diagnosis"],
+  ("Richard Harvey","Took it in without an appointment on Monday morning and by 10:30 that morning the car was repaired."),"engine"),
+ ("brakes","Brakes, steering &amp; suspension","f07",None,"Stops that feel right and a car that drives straight.",
+  "Brake jobs, steering and suspension work on our lifts: noises, pulling, vibration or a soft pedal. You get the options and the reasons, not a scare list.",
+  ["Brake jobs","Steering &amp; suspension","Noises, pulling &amp; vibration"],
+  ("rene morrissey","Steering away from costly repairs or parts that might be \u201crecommended\u201d but aren\u2019t worth the price difference."),"brake"),
+ ("tires","Tires, wheels &amp; alignment","g09",None,"New rubber, new rims and a straight, true alignment.",
+  "Tire and wheel installs plus wheel alignment on our alignment rack, so your new tires wear evenly and the wheel sits straight.",
+  ["Tires","Wheel alignment","Rims &amp; wheels"],
+  ("Steven Murphy","They installed new rims and tires for me. Super friendly staff, very knowledgeable."),"tire"),
+ ("maint","Oil changes &amp; maintenance","f01",None,"Oil, filters and the routine work that keeps it running.",
+  "Oil changes, air and cabin filters and general maintenance. Fallen behind? We\u2019ll sort out what matters first and help you plan the rest around your budget.",
+  ["Oil changes","Air &amp; cabin filters","General repairs &amp; maintenance","Planning ahead for future repairs"],
+  ("Karen Swinea","The owners were so helpful is diagnosing what needed to be done first and worked with me to fit it into my budget."),"oil"),
+ ("engine","Engine, electrical &amp; battery","g03",None,"From a dead battery to engine repair.",
+  "Engine repair, electrical problems and batteries. We test before we replace, so you\u2019re paying to fix the actual problem.",
+  ["Engine repair","Electrical","Batteries"],
+  ("Pandora Rose","Before I even got to Dave Mays, they had researched my issue and had a solution ready to go."),"battery"),
+ ("ac","A/C, transmission &amp; exhaust","f11",None,"Cold air in a Florida summer, smooth shifts, a quiet exhaust.",
+  "Air-conditioning service, transmission work and exhaust repair: the jobs Gainesville drivers can\u2019t put off for long.",
+  ["Air conditioning","Transmission","Exhaust"],
+  ("Reid Wagner","They communicated clearly, got the work done efficiently, and made everything easy."),"snow"),
+ ("fleet","Classic cars, daily drivers &amp; fleets","g08","f10","Old iron, the family car and the company trucks.",
+  "We work on classic cars, day-to-day vehicles and fleet vehicles. Local businesses bring their fleets here, and families bring every car in the driveway.",
+  ["Classic cars","Day-to-day vehicles","Fleet vehicles"],
+  ("Paul Theus","Our company brings our fleet vehicles here for service\u2026 Fair, honest , efficient , great communications."),"truck"),
+]
+
+# dashboard lights (home): key, label, colour, what it means (general), what we do, service key
+DASH = [
+ ("engine","Check engine","amber","Your car\u2019s computer has logged a fault: anything from a loose gas cap to a misfire.","We read the codes, test the cause and tell you straight what it needs.","diag"),
+ ("battery","Battery / charging","red","The charging system isn\u2019t keeping up: battery, alternator or wiring.","Battery and electrical testing before anything gets replaced.","engine"),
+ ("brake","Brake system","red","Low brake fluid, worn pads or the parking brake is still on.","Brake inspection and brake jobs on our lifts.","brakes"),
+ ("oil","Oil pressure","red","Low oil level or pressure. Pull over and don\u2019t keep driving on it.","Oil changes, leak checks and oil leak repair.","maint"),
+ ("temp","Engine temperature","red","Running hot: coolant, thermostat, fan or water pump.","Diagnosis first, then the repair that fixes it.","diag"),
+ ("tire","Tire pressure","amber","One or more tires is low, or the sensor needs attention.","Tires, wheels and alignment.","tires"),
+ ("snow","A/C blowing warm","teal","Not a dash light, but in Gainesville it may as well be one.","A/C service and repair.","ac"),
+ ("steer","Steering / pulling","amber","Pulling, wandering or a heavy wheel can mean steering, suspension or alignment.","Steering, suspension and alignment work.","brakes"),
 ]
 
 CAP = {  # gallery captions + filter tags
- 'g01':("Our truck and crew, ready to roll","crew"),
- 'g02':("The truck on a commercial job","crew"),
- 'g04':("A truck load, wrapped and stacked tight","pack"),
- 'g05':("Shrink-wrapped and strapped for the carry","pack"),
- 'g03':("A hot tub delivered and set down","heavy"),
- 'g11':("Hot tub in place on the back patio","heavy"),
- 'g06':("A storage unit, loaded neatly","rooms"),
- 'g07':("Sectional set down in the new place","rooms"),
- 'g09':("Condo move in progress","rooms"),
+ 'g03':("Engine bay open, new battery going in","shop"),
+ 'g15':("The alignment rack","shop"),
+ 'f07':("Lifts and the shop floor","shop"),
+ 'f08':("Hood up, diagnosis under way","shop"),
+ 'f01':("Tool carts and lifts","shop"),
+ 'g17':("The lobby: big windows, comfortable seats","lobby"),
+ 'g02':("Lobby seating while you wait","lobby"),
+ 'g08':("A classic flatbed pickup at the shop","classic"),
+ 'f10':("A classic 4x4 in for work","classic"),
+ 'g09':("A fresh set of wheels and tires","shop"),
+ 'g07':("The shop on NE 19th Dr","outside"),
+ 'f11':("Our service bays","outside"),
+ 'f03':("Out front, along the landscaping","outside"),
+ 'g10':("Our front door: hours and phone","outside"),
+ 'sign':("The roadside sign, since 1975","outside"),
 }

@@ -1,0 +1,28 @@
+# Dave Mays Automotive
+> Auto repair shop in Gainesville, Florida, serving customers since 1975 (as stated by the business). ASE certified technicians, comfortable customer lobby, loaner vehicle. Rated 4.6/5 from 163 Google reviews; 98% recommend on Facebook (17 reviews).
+
+- Address: 2905 NE 19th Dr, Gainesville, FL 32609
+- Phone: (352) 372-7617
+- Hours (Eastern): Mon-Thu 7:30 AM-5:30 PM; Fri 7:30 AM-5:00 PM; Sat-Sun closed. Holiday hours may vary.
+- Warranty: 2 years / 20,000 miles on most parts and labor (ask what covers your repair).
+- Vehicles: classic cars, day-to-day vehicles, fleet vehicles.
+- Pricing: not published; call for a quote.
+- Google: https://www.google.com/maps/place/Dave+Mays+Automotive/@29.678969,-82.2985268,17z/data=!3m1!4b1!4m6!3m5!1s0x88e8a6a1b044c1bb:0x47dfdd13616fe318
+- Facebook: https://www.facebook.com/DaveMaysAutomotive/
+
+## Services
+- Diagnostics & check-engine lights: Warning light on? We find the cause and tell you straight. (Check-engine & warning lights, Running rough, stalling, hesitation, Oil leaks, Fast, clear diagnosis)
+- Brakes, steering & suspension: Stops that feel right and a car that drives straight. (Brake jobs, Steering & suspension, Noises, pulling & vibration)
+- Tires, wheels & alignment: New rubber, new rims and a straight, true alignment. (Tires, Wheel alignment, Rims & wheels)
+- Oil changes & maintenance: Oil, filters and the routine work that keeps it running. (Oil changes, Air & cabin filters, General repairs & maintenance, Planning ahead for future repairs)
+- Engine, electrical & battery: From a dead battery to engine repair. (Engine repair, Electrical, Batteries)
+- A/C, transmission & exhaust: Cold air in a Florida summer, smooth shifts, a quiet exhaust. (Air conditioning, Transmission, Exhaust)
+- Classic cars, daily drivers & fleets: Old iron, the family car and the company trucks. (Classic cars, Day-to-day vehicles, Fleet vehicles)
+
+## Pages
+- [Home](https://rgwebd.github.io/davemaysautomotive-demo/): overview, dashboard-light guide, why customers return, services, reviews
+- [Services](https://rgwebd.github.io/davemaysautomotive-demo/services.html): each service and how a visit works
+- [The Shop](https://rgwebd.github.io/davemaysautomotive-demo/shop.html): photo gallery of the shop, lobby and classics
+- [About](https://rgwebd.github.io/davemaysautomotive-demo/about.html): history since 1975, the roadside sign, the lobby
+- [Reviews](https://rgwebd.github.io/davemaysautomotive-demo/reviews.html): ten Google reviews quoted word for word
+- [Contact](https://rgwebd.github.io/davemaysautomotive-demo/contact.html): phone, address, hours, appointment request (opens a text message), FAQ, map
